@@ -31,7 +31,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.preprocessing import MinMaxScaler, OneHotEncoder, StandardScaler
 
 
 # ============================================================
@@ -232,7 +232,10 @@ print("\n" + "=" * 70)
 print("STEP 8: CREATING NUMERICAL PREPROCESSING")
 print("=" * 70)
 
+
 SCALER = StandardScaler()
+
+
 
 numerical_pipeline = Pipeline(
     steps=[
@@ -243,6 +246,7 @@ numerical_pipeline = Pipeline(
         (
             "scaler",
              SCALER
+
         )
     ]
 )
@@ -250,7 +254,7 @@ numerical_pipeline = Pipeline(
 print(
     "\nNumerical preprocessing:"
     "\n1. Missing values -> median"
-    "\n2. Features -> StandardScaler"
+    "\n2. Features -> MinMaxScaler"
 )
 
 
