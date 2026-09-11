@@ -232,6 +232,8 @@ print("\n" + "=" * 70)
 print("STEP 8: CREATING NUMERICAL PREPROCESSING")
 print("=" * 70)
 
+SCALER = StandardScaler()
+
 numerical_pipeline = Pipeline(
     steps=[
         (
@@ -240,7 +242,7 @@ numerical_pipeline = Pipeline(
         ),
         (
             "scaler",
-            StandardScaler()
+             SCALER
         )
     ]
 )
